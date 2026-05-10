@@ -1,4 +1,4 @@
-# STOX
+# STOX (Stocks SPE Project)
 
 [![Java](https://img.shields.io/badge/Java-17-blue)](https://adoptium.net/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.5-brightgreen)](https://spring.io/projects/spring-boot)
@@ -30,29 +30,22 @@ STOX is a microservices-based stock portfolio simulator. It’s designed to run 
 
 ```mermaid
 flowchart LR
-	FE[Frontend (React + Nginx)
-	Frontend_nw/] -->|/auth_portal
-	/output_monitor
-	/user_activity
-	/stock_ingestion| GW[API Gateway
-	Spring Cloud Gateway]
+    FE["Frontend_nw (React + Nginx)"] -->|/auth_portal /output_monitor /user_activity /stock_ingestion| GW["API Gateway (Spring Cloud Gateway)"]
 
-	GW --> SI[stock_ingestion]
-	GW --> OM[OutputMonitor]
-	GW --> SU[SignUp]
-	GW --> UA[user_activity]
+    GW --> SI["stock_ingestion"]
+    GW --> OM["OutputMonitor"]
+    GW --> SU["SignUp"]
+    GW --> UA["user_activity"]
 
-	PM[price_monitor
-	scheduled updater] --> DB[(MySQL
-	stockdb)]
-	SI --> DB
-	OM --> DB
-	SU --> DB
-	UA --> DB
+    PM["price_monitor (scheduled updater)"] --> DB[("MySQL: stockdb")]
+    SI --> DB
+    OM --> DB
+    SU --> DB
+    UA --> DB
 
-	PROM[Prometheus] --> GRAF[Grafana]
-	PROMTAIL[Promtail] --> LOKI[Loki]
-	LOKI --> GRAF
+    PROM["Prometheus"] --> GRAF["Grafana"]
+    PROMTAIL["Promtail"] --> LOKI["Loki"]
+    LOKI --> GRAF
 ```
 
 ### Services and ports
