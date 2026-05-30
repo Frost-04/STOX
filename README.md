@@ -1,4 +1,4 @@
-# STOX (Stocks SPE Project)
+# STOX
 
 [![Java](https://img.shields.io/badge/Java-17-blue)](https://adoptium.net/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.5-brightgreen)](https://spring.io/projects/spring-boot)
